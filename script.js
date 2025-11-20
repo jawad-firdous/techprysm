@@ -92,6 +92,24 @@ function initModal() {
     }
   });
 
+  // Handle form submission
+  if (contactForm) {
+    contactForm.addEventListener("submit", (e) => {
+      const submitButton = contactForm.querySelector('button[type="submit"]');
+      const originalText = submitButton?.textContent;
+      
+      // Disable submit button and show loading state
+      if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.textContent = "Submitting...";
+      }
+      
+      // Let the form submit naturally to FormSubmit
+      // FormSubmit will handle the redirect to _next URL
+      // The form will navigate away, so we don't need to close the modal here
+    });
+  }
+
   // Check if form was just submitted
   const urlParams = new URLSearchParams(window.location.search);
   if (urlParams.get("submitted") === "true") {
