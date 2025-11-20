@@ -64,12 +64,21 @@ function closeNavOnLinkClick(e) {
   }
 }
 
+const contactForm = qs("#contact-form");
+const closeModalButtons = qsa("[data-close-modal]");
+
 function openModal() {
   contactModal?.showModal();
 }
 
+function closeModal() {
+  contactModal?.close();
+}
+
 function initModal() {
   openModalButtons.forEach((btn) => btn.addEventListener("click", openModal));
+  closeModalButtons.forEach((btn) => btn.addEventListener("click", closeModal));
+  
   contactModal?.addEventListener("click", (event) => {
     const dialog = event.currentTarget;
     const rect = dialog.getBoundingClientRect();
@@ -82,6 +91,15 @@ function initModal() {
       dialog.close("backdrop");
     }
   });
+
+  // Check if form was just submitted
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get("submitted") === "true") {
+    // Show success message (you can enhance this with a toast notification)
+    setTimeout(() => {
+      window.history.replaceState({}, document.title, window.location.pathname);
+    }, 3000);
+  }
 }
 
 function updateYear() {

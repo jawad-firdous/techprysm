@@ -487,20 +487,34 @@
     </footer>
 
     <dialog class="contact-modal" id="contact-modal">
-      <form method="dialog">
+      <form
+        action="https://formsubmit.co/careers@techprysm.com"
+        method="POST"
+        id="contact-form"
+      >
         <h3>Schedule a call</h3>
-        <p>Drop your email and we’ll reply within one business day.</p>
+        <p>Drop your email and we'll reply within one business day.</p>
+        <input type="hidden" name="_subject" value="New Contact Form Submission from TechPrysm" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_next" value="https://www.techprysm.com/?submitted=true" />
         <label>
           Work email
-          <input type="email" placeholder="you@company.com" required />
+          <input
+            type="email"
+            name="email"
+            placeholder="you@company.com"
+            required
+          />
         </label>
         <label>
-          What’s your goal?
-          <textarea rows="3"></textarea>
+          What's your goal?
+          <textarea name="message" rows="3" required></textarea>
         </label>
         <menu>
-          <button class="btn btn--ghost" value="cancel">Cancel</button>
-          <button class="btn btn--primary" value="confirm">Submit</button>
+          <button class="btn btn--ghost" type="button" data-close-modal>
+            Cancel
+          </button>
+          <button class="btn btn--primary" type="submit">Submit</button>
         </menu>
       </form>
     </dialog>
