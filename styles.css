@@ -84,19 +84,15 @@ img {
 }
 
 .logo {
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
   display: inline-flex;
-  gap: 0.35rem;
+  align-items: center;
+  text-decoration: none;
 }
 
-.logo span:first-child {
-  color: var(--accent-2);
-}
-
-.logo span:last-child {
-  color: var(--accent);
+.logo img {
+  height: 32px;
+  width: auto;
+  display: block;
 }
 
 .site-nav {
