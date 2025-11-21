@@ -551,18 +551,19 @@
               <li>Hands-on founders</li>
             </ul>
           </div>
-          <form class="contact__form">
+          <form class="contact__form" action="https://formspree.io/f/mqajkgvo" method="POST" id="contact-section-form">
+            <input type="hidden" name="_subject" value="New Contact Form Submission from TechPrysm" />
             <label>
               Full name
-              <input type="text" placeholder="Alex Rivera" required />
+              <input type="text" name="name" placeholder="Alex Rivera" required />
             </label>
             <label>
               Work email
-              <input type="email" placeholder="alex@company.com" required />
+              <input type="email" name="email" placeholder="alex@company.com" required />
             </label>
             <label>
               Project focus
-              <select required>
+              <select name="project_focus" required>
                 <option value="">Select an option</option>
                 <option>AI Automation</option>
                 <option>Product Design</option>
@@ -572,7 +573,7 @@
             </label>
             <label>
               What should we know?
-              <textarea rows="4" placeholder="Goals, timeline, metrics"></textarea>
+              <textarea name="message" rows="4" placeholder="Goals, timeline, metrics"></textarea>
             </label>
             <button class="btn btn--primary" type="submit">
               Book a Strategy Call
@@ -626,17 +627,15 @@
 
     <dialog class="contact-modal" id="contact-modal">
       <form
-        action="https://formsubmit.co/careers@techprysm.com"
+        action="https://formspree.io/f/mqajkgvo"
         method="POST"
         id="contact-form"
       >
         <h3>Schedule a call</h3>
         <p>Drop your email and we'll reply within one business day.</p>
         <input type="hidden" name="_subject" value="New Contact Form Submission from TechPrysm" />
-        <input type="hidden" name="_captcha" value="false" />
-        <input type="hidden" name="_template" value="box" />
-        <input type="hidden" name="_next" value="https://www.techprysm.com/?submitted=true" />
-        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+        <input type="hidden" name="_next" id="form-next-url" value="" />
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
         <label>
           Work email
           <input
